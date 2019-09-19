@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"> {{ user.name }} </h5>
+    <p class="card-text">Age: {{ user.age }} </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> {{ user.registrationDate | date :'shortDate' }} </li>
+  </ul>
+  <div class="card-body">
+    <button type="button" class="btn btn-primary btn-lg btn-block">Show more</button>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="form-register">
+    <form [formGroup]="createForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="name">User name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="User name"
+          formControlName="name">
+          <span
+            *ngIf="!createForm.get('name').valid && createForm.touched"
+            class="error-form-msn">
+            Please, provide a user name.
+          </span>
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input
+          type="number"
+          class="form-control"
+          id="age"
+          placeholder="Age"
+          formControlName="age">
+          <span
+            *ngIf="!createForm.get('age').valid && createForm.touched"
+            class="error-form-msn">
+            Please, provide a user age valid.
+          </span>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select
+          class="form-control"
+          id="gender"
+          formControlName="gender">
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+      </div>
+      <p
+        *ngIf="!createForm.valid && createForm.touched"
+          class="error-form-msn">
+          Please, provide valid data to create the user.
+      </p>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<div class="container">
+  <div class="row">
+    <app-user-component
+      *ngFor="let user of users"
+      [user]="user"
+      class="col col-xs-12 col-sm-12 col-md-12 col-lg-4 mb-2">
+    </app-user-component>
+  </div>
+</div>
+
