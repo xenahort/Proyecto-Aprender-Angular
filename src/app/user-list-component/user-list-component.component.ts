@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../user-component/user.model';
+import { UserServiceService } from '../user-service.service';
 
 @Component({
   selector: 'app-user-list-component',
   templateUrl: './user-list-component.component.html',
-  styleUrls: ['./user-list-component.component.css']
+  styleUrls: ['./user-list-component.component.css'],
+  providers: [UserServiceService]
 })
 export class UserListComponentComponent implements OnInit {
 
   createForm: FormGroup;
   positiveNumberPattern: any = /^d*[1-9]\d*$/;
 
-  users: User[] = [
-    new User('Juan Carlos', 24, 'Male', 1),
-    new User('Manuel', 28, 'Male', 2)
-  ];
+  users: User[] = [];
 
-  constructor() { }
+  constructor(private userService: UserServiceService) { }
 
   ngOnInit() {
     this.buildForm();
+    this.users = this.userService.users;
   }
 
   buildForm() {
@@ -33,10 +33,9 @@ export class UserListComponentComponent implements OnInit {
 
   submitForm() {
     if (this.createForm.valid) {
-      console.log(this.createForm);
       const usu = this.createForm.value;
       const nuevoId = this.users[this.users.length - 1].userId + 1;
-      this.users.push( new User(usu.name, usu.age, usu.gender, nuevoId) );
+      this.userService.addUser( new User(usu.name, usu.age, usu.gender, nuevoId) );
     }
   }
 }

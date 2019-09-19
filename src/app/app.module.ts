@@ -6,14 +6,13 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 import { UserListComponentComponent } from './user-list-component/user-list-component.component';
-import { UserDetailComponentComponent } from './user-detail-component/user-detail-component.component';
 import { WelcomeComponentComponent } from './welcome-component/welcome-component.component';
-import { ServicesListComponentComponent } from './services-list-component/services-list-component.component';
 import { UserComponentComponent } from './user-component/user-component.component';
 import { InsuranceServiceComponentComponent } from './insurance-service-component/insurance-service-component.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { UserDetailComponentComponent } from './user-detail-component/user-detail-component.component';
 
 
 @NgModule({
@@ -22,11 +21,10 @@ import { FormsModule } from '@angular/forms';
     MenuComponent,
     PageNotFoundComponentComponent,
     UserListComponentComponent,
-    UserDetailComponentComponent,
     WelcomeComponentComponent,
-    ServicesListComponentComponent,
     UserComponentComponent,
-    InsuranceServiceComponentComponent
+    InsuranceServiceComponentComponent,
+    UserDetailComponentComponent
   ],
   imports: [
     BrowserModule,

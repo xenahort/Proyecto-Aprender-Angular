@@ -10,7 +10,7 @@
           placeholder="User name"
           formControlName="name">
           <span
-            *ngIf="!createForm.get('name').valid && createForm.touched"
+            *ngIf="!createForm.get('name').valid && createForm.get('name').touched"
             class="error-form-msn">
             Please, provide a user name.
           </span>
@@ -24,7 +24,7 @@
           placeholder="Age"
           formControlName="age">
           <span
-            *ngIf="!createForm.get('age').valid && createForm.touched"
+            *ngIf="!createForm.get('age').valid && createForm.get('age').touched"
             class="error-form-msn">
             Please, provide a user age valid.
           </span>
